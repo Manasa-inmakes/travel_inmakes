@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         body {
+                font-family:  Helvetica;
+                background-color: lightblue;
+                background-image:urls("img.jpeg");
+               }
+
+        h3{
+                font-family:sans-serif;
+                color: white;
+                text-align: center;
+                font-size:50px solid;
+          }
+
+        .registerbtn {
+                      background-color:blue;
+                      color: white;
+                      padding: 16px 20px;
+                    }
+
+        .registerbtn:hover {
+                             opacity: 1;
+                            }
+
+        input[type="text"]{
+                          width: 20%;
+                          padding: 2px;
+                          margin: 8px 0;
+                          box-sizing: border-box;
+                        }
+        input[type="email"]{
+                          width: 20%;
+                          padding: 2px;
+                          margin: 8px 0;
+                          box-sizing: border-box;
+                        }
+        input[type="password"]{
+                          width:20%;
+                          padding: 2px;
+                          margin: 8px 0;
+                          box-sizing: border-box;
+                        }
+    </style>
+</head>
+
+<body>
+<br><br>
+<h3>Registration</h3>
+<br>
+
+<form action="register" method="POST">
+    {% csrf_token %}
+    <center>
+    Username: <input type="text" name="username" placeholder="Enter your username"><br><br>
+    FirstName: <input type="text" name="first_name" placeholder="Enter your firstname"><br><br>
+    LastName: <input type="text" name="last_name" placeholder="Enter your lastname"><br><br>
+    Email_id: <input type="email" name="email" placeholder="Enter your email"><br><br>
+    Password: <input type="password" name="password" placeholder="Enter your password"><br><br>
+    Password: <input type="password" name="password1" placeholder="confirm password"><br><br>
+    <button type="submit" class="registerbtn">Register</button>
+</center>
+</form>
+{% for msg in messages %}
+<h4 style="color:blue;">{{msg}}</h4>
+{% endfor %}
+</body>
+</html>
+
